@@ -122,42 +122,43 @@ if (!enStock) {
   alert(`Tu precio final es: $${precioFinal}`);
 }
 
-class Product {
-  constructor(id, name, price, stock) {
+// Clase Product para manejar productos con stock y precios
+class Producto {
+  constructor(id, nombre, precio, stock) {
     this.id = id;
-    this.name = name;
-    this.price = price;
+    this.nombre = nombre;
+    this.precio = precio;
     this.stock = stock;
   }
 
   // Disminuir el stock por quantity y return el precio total
-  sell(quantity = 1) {
-    if (quantity > this.stock) {
-      console.log(`Insufficient stock for ${this.name}`);
+  vender(cantidad = 1) {
+    if (cantidad > this.stock) {
+      console.log(`Stock insuficiente para ${this.nombre}`);
       return 0;
     }
-    this.stock -= quantity;
-    const total = this.price * quantity;
-    console.log(`${quantity} × ${this.name} sold for $${total}. Remaining stock: ${this.stock}`);
+    this.stock -= cantidad;
+    const total = this.precio * cantidad;
+    console.log(`${cantidad} × ${this.nombre} vendido por $${total}. Stock restante: ${this.stock}`);
     return total;
   }
 
   // Aplico descuento
-  applyDiscount(percent) {
-    const oldPrice = this.price;
-    this.price = Math.round(this.price * (1 - percent));
-    console.log(`${this.name} price changed from $${oldPrice} to $${this.price}`);
+  aplicarDescuento(porcentaje) {
+    const precioBase = this.precio;
+    this.precio = Math.round(this.precio * (1 - porcentaje));
+    console.log(`El precio de ${this.nombre} ha cambiado de $${precioBase} a $${this.precio}`);
   }
 }
 
 // Crear tres instancias del producto
-const prodA = new Product(1, "Adidas Shoes", 900, 10);
-const prodB = new Product(2, "Nike Sneakers", 1500, 5);
-const prodC = new Product(3, "Puma Tee", 1100, 20);
+const productoAdidas = new Producto(1, "Adidas Shoes", 900, 10);
+const productoNike = new Producto(2, "Nike Sneakers", 1500, 5);
+const productoPuma = new Producto(3, "Puma Tee", 1100, 20);
 
 // Mostrar métodos
-prodA.applyDiscount(0.15);
-prodA.sell(2);
-prodB.sell(1);
-prodC.applyDiscount(0.10);
-prodC.sell(5);
+productoAdidas.aplicarDescuento(0.15);
+productoAdidas.vender(2);
+productoNike.vender(1);
+productoPuma.aplicarDescuento(0.10);
+productoPuma.vender(5);
