@@ -134,12 +134,12 @@ class Producto {
   // Disminuir el stock por quantity y return el precio total
   vender(cantidad = 1) {
     if (cantidad > this.stock) {
-      console.log(`Stock insuficiente para ${this.nombre}`);
+      console.log(`Insufficient stock for ${this.name}`);
       return 0;
     }
     this.stock -= cantidad;
-    const total = this.precio * cantidad;
-    console.log(`${cantidad} × ${this.nombre} vendido por $${total}. Stock restante: ${this.stock}`);
+    const total = this.price * cantidad;
+    console.log(`${cantidad} × ${this.name} sold for $${total}. Remaining stock: ${this.stock}`);
     return total;
   }
 
@@ -157,8 +157,8 @@ const productoNike = new Producto(2, "Nike Sneakers", 1500, 5);
 const productoPuma = new Producto(3, "Puma Tee", 1100, 20);
 
 // Mostrar métodos
-productoAdidas.aplicarDescuento(0.15);
-productoAdidas.vender(2);
-productoNike.vender(1);
-productoPuma.aplicarDescuento(0.10);
-productoPuma.vender(5);
+prodA.applyDiscount(0.15);
+prodA.vender(2);
+prodB.vender(1);
+prodC.applyDiscount(0.10);
+prodC.vender(5);
