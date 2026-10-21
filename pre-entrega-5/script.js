@@ -131,14 +131,14 @@ class Product {
   }
 
   // Disminuir el stock por quantity y return el precio total
-  sell(quantity = 1) {
-    if (quantity > this.stock) {
+  vender(cantidad = 1) {
+    if (cantidad > this.stock) {
       console.log(`Insufficient stock for ${this.name}`);
       return 0;
     }
-    this.stock -= quantity;
-    const total = this.price * quantity;
-    console.log(`${quantity} × ${this.name} sold for $${total}. Remaining stock: ${this.stock}`);
+    this.stock -= cantidad;
+    const total = this.price * cantidad;
+    console.log(`${cantidad} × ${this.name} sold for $${total}. Remaining stock: ${this.stock}`);
     return total;
   }
 
@@ -157,7 +157,7 @@ const prodC = new Product(3, "Puma Tee", 1100, 20);
 
 // Mostrar métodos
 prodA.applyDiscount(0.15);
-prodA.sell(2);
-prodB.sell(1);
+prodA.vender(2);
+prodB.vender(1);
 prodC.applyDiscount(0.10);
-prodC.sell(5);
+prodC.vender(5);
