@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pre-Entrega 8 - Tienda deportiva</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=paid"
+    />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <header class="encabezado">
+      <div class="encabezado-texto">
+        <h1 id="titulo">Tienda deportiva</h1>
+        <p>Buscá, agregá productos al catálogo y armá tu carrito.</p>
+      </div>
+      <div class="moneda" title="Los precios están expresados en dólares">
+        <p>USD</p>
+        <span class="material-symbols-rounded" aria-hidden="true">paid</span>
+      </div>
+    </header>
+
+    <div id="aviso" class="mensaje"></div>
+
+    <main class="layout">
+      <section class="panel">
+        <h2>Nuevo producto</h2>
+        <form id="form-producto" class="form" novalidate>
+          <label>
+            Nombre
+            <input
+              type="text"
+              id="input-nombre"
+              placeholder="Ej: Nike Air Zoom"
+            />
+          </label>
+          <label>
+            Precio ($)
+            <input
+              type="number"
+              id="input-precio"
+              min="1"
+              placeholder="Ej: 1500"
+            />
+          </label>
+          <label>
+            Stock
+            <input
+              type="number"
+              id="input-stock"
+              min="0"
+              placeholder="Ej: 10"
+            />
+          </label>
+          <button type="submit" class="btn" id="btn-agregar">
+            Agregar al catálogo
+          </button>
+        </form>
+      </section>
+
+      <section class="panel panel-catalogo">
+        <h2>Catálogo</h2>
+        <div class="filtros">
+          <input
+            type="search"
+            id="input-buscar"
+            placeholder="Buscar por nombre..."
+          />
+        </div>
+        <div id="contenedor-items" class="grilla"></div>
+      </section>
+
+      <aside class="panel panel-carrito">
+        <h2>Carrito</h2>
+        <div id="contenedor-carrito"></div>
+        <p class="total">Total: <strong id="total-carrito">$0</strong></p>
+        <div class="acciones-carrito">
+          <button type="button" class="btn" id="btn-finalizar">
+            Finalizar compra
+          </button>
+          <button type="button" class="btn btn-secundario" id="btn-vaciar">
+            Vaciar
+          </button>
+        </div>
+      </aside>
+    </main>
+  </body>
+</html>
